@@ -3,11 +3,13 @@ buildscript {
     repositories {
         google()
         jcenter()
+        mavenCentral()
     }
 
     dependencies {
         classpath 'com.android.tools.build:gradle:3.1.4'
         classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.2.70'
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.0'
     }
 }
 
