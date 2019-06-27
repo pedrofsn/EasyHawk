@@ -1,7 +1,7 @@
 package br.com.redcode.easyhawk.sample.view
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import br.com.redcode.easyhawk.sample.R
 import br.com.redcode.easyhawk.sample.model.User
 import br.com.redcode.easyhawk.sample.storage.SP
