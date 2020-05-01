@@ -9,8 +9,8 @@ abstract class EasyHawk {
     fun <T> get(key: String): T? = Hawk.get<T>(key, null)
     fun getBoolean(key: String, default: Boolean = false) = Hawk.get(key, default)
 
-    open fun delete(key: String) {
-        Hawk.delete(key)
+    open fun delete(key: String): Boolean {
+        return Hawk.delete(key)
     }
 
     fun delete(vararg keys: String) {
@@ -19,9 +19,9 @@ abstract class EasyHawk {
         }
     }
 
-    open fun save(key: String, value: Any?) {
+    open fun save(key: String, value: Any?): Boolean {
         if (key.isNotBlank()) {
-            if (value == null) {
+            return if (value == null) {
                 persist(key, value)
             } else {
                 when (value) {
@@ -33,6 +33,8 @@ abstract class EasyHawk {
                 }
             }
         }
+
+        return false
     }
 
     fun has(vararg keys: String): Boolean {
@@ -47,8 +49,8 @@ abstract class EasyHawk {
 
     private fun has(key: String) = Hawk.contains(key) && get(key) != null
 
-    open fun persist(key: String, value: Any?) {
-        Hawk.put(key, value)
+    open fun persist(key: String, value: Any?): Boolean {
+        return Hawk.put(key, value)
     }
 
 }
